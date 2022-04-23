@@ -1,5 +1,4 @@
 using NUnit.Framework;
-
 using UnitTestAndDebug;
 
 namespace Tests
@@ -13,9 +12,31 @@ namespace Tests
         }
 
         [Test]
-        public void Test1() // Cambiá el nombre para indicar qué estás probando
+        public void InvalidIdTest() // Testeamos que con una ID invalida no se asigne a la instancia person el valor de ID.
         {
-            // Insertá tu código  de pruebaaquí
+            Person person = new Person("Santiago Ferraro", "3939-323-3");
+            Assert.That(person.ID == null);
+        }
+
+        [Test]
+        public void ValidIdTest() // Testeamos que con una ID valida se asigne a la instancia person el valor de ID.
+        {
+            Person person = new Person("Santiago Ferraro", "5-307-722-8");
+            Assert.That(person.ID == "5-307-722-8");
+        }
+
+        [Test]
+        public void InvalidNameTest() // Testeamos que con un nombre invalido no se asigne a la instancia person el valor de name.
+        {
+            Person person = new Person("", "5-307-722-8");
+            Assert.That(person.Name == null);
+        }
+
+        [Test]
+        public void ValidNameTest() // Testeamos que con un nombre valido se asigne a la instancia person el valor de name.
+        {
+            Person person = new Person("Santiago Ferraro", "5-307-722-8");
+            Assert.That(person.Name == "Santiago Ferraro");
         }
     }
 }
