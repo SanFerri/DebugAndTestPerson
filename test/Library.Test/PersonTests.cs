@@ -12,9 +12,23 @@ namespace Tests
         }
 
         [Test]
-        public void InvalidIdTest() // Testeamos que con una ID invalida no se asigne a la instancia person el valor de ID.
+        public void InvalidNumbersIdTest() // Testeamos que con una ID invalida no se asigne a la instancia person el valor de ID.
+        {
+            Person person = new Person("Santiago Ferraro", "399-323-3");
+            Assert.That(person.ID == null);
+        }
+
+        [Test]
+        public void InvalidLengthIdTest() // Testeamos que con una ID invalida no se asigne a la instancia person el valor de ID.
         {
             Person person = new Person("Santiago Ferraro", "3939-323-3");
+            Assert.That(person.ID == null);
+        }
+
+        [Test]
+        public void InvalidFormatIdTest() // Testeamos que con una ID invalida no se asigne a la instancia person el valor de ID.
+        {
+            Person person = new Person("Santiago Ferraro", "3933233");
             Assert.That(person.ID == null);
         }
 
